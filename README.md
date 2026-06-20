@@ -24,7 +24,7 @@ WhatsApp AI bot using FastAPI and Azure OpenAI for text conversations, transcrip
 
 ## Tech Stack
 
-Python · FastAPI · Azure OpenAI · LangChain · FAISS
+Python Â· FastAPI Â· Azure OpenAI Â· LangChain Â· FAISS
 
 ## Getting Started
 
@@ -53,62 +53,38 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 This is a learning and reference implementation. Review security, validation, monitoring, and deployment settings before production use.
 
-<!-- code-audit-details -->
+## Detailed Code Reference
 
-## 🔄 Runtime Flow
+**Runtime flow:** `Text/audio -> STT -> retrieval -> LLM -> TTS/text -> channel reply`
 
-`Text/audio → Azure STT → Azure chat → Azure TTS/text`
+### Repository map
 
-This flow is derived from the current entry points and service calls.
+- `__pycache__/` - supporting package or resources
+- `api/` - supporting package or resources
+- `app/` - supporting package or resources
+- `docs/` - supporting package or resources
+- `fastapi_app.py` - project file
+- `main.py` - project file
+- `package.json` - project file
+- `package-lock.json` - project file
+- `README.md` - project file
+- `requirements.txt` - project file
 
-## 🗂 Code Map
-
-| Path | Responsibility |
-| --- | --- |
-| `__pycache__/` | Supporting resource |
-| `api/` | Supporting resource |
-| `app/` | Supporting resource |
-| `docs/` | Supporting resource |
-| `fastapi_app.py` | Supporting resource |
-| `main.py` | Application entry point |
-| `package.json` | Node.js dependencies |
-| `package-lock.json` | Supporting resource |
-| `requirements.txt` | Python dependencies |
-
-## 🔐 Environment Variables
-
-| Variable | Purpose |
-| --- | --- |
-| `AZURE_OPENAI_API_VERSION` | Azure OpenAI connection/model |
-| `AZURE_TTS_FORMAT` | Optional runtime setting |
-| `AZURE_TTS_VOICE` | Optional runtime setting |
-
-## 🌐 Detected API Routes
-
-| Method | Endpoint |
-| --- | --- |
-| `GET` | `/` |
-| `GET` | `/health` |
-| `POST` | `/audio` |
-| `POST` | `/text` |
-
-## 🧪 Validation Guide
+### Validation checklist
 
 1. Install dependencies in a clean virtual environment.
-2. Start the documented entry point and test the root or health route.
-3. Exercise one valid and one invalid request.
-4. Verify external-service errors are handled clearly.
-5. Confirm secrets, private data, indexes, and model artifacts are ignored.
+2. Configure only the environment variables needed by enabled integrations.
+3. Start the documented entry point and test its health or root route.
+4. Exercise successful and invalid requests.
+5. Confirm secrets, private datasets, indexes, and model artifacts are ignored.
 
-## 🔒 Production Checklist
+### Production checklist
 
-- Use managed secret storage and rotate exposed credentials.
+- Use managed secret storage.
 - Add authentication, authorization, rate limiting, and request-size limits.
-- Add automated tests, structured logging, monitoring, and health checks.
+- Add automated tests, structured logs, monitoring, and health checks.
 - Pin and audit dependencies.
 - Define retention and privacy controls for audio and customer data.
 
-## ⚠️ Code-Audit Notes
+> This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
 
-- Documentation reflects the current repository code and may expose integrations that need separate cloud accounts, model assets, or channel approval.
-- Treat the project as a reference implementation until its security and deployment configuration are hardened.
