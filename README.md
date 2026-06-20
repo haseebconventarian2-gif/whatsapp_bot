@@ -15,6 +15,14 @@ WhatsApp AI bot using FastAPI and Azure OpenAI for text conversations, transcrip
 
 WhatsApp AI bot using FastAPI and Azure OpenAI for text conversations, transcription, and synthesized voice replies.
 
+## 📖 The Story
+
+This repository begins with the simplest channel goal: let a user send text or audio and receive an AI-generated response through a familiar messaging experience. It focuses on the communication layer before adding the heavier retrieval architecture found in the later banking bots.
+
+FastAPI exposes the Python text and audio endpoints, Azure OpenAI handles generation, transcription, and speech synthesis, and the Node.js modules provide WhatsApp webhook, media, and delivery building blocks. Together they demonstrate the boundaries between AI processing and channel transport.
+
+The next step is to choose one primary runtime, enable and test the WhatsApp path end to end, validate webhook signatures, and add durable media handling and conversation state.
+
 ## Highlights
 
 - Text conversation endpoint
@@ -87,4 +95,5 @@ This is a learning and reference implementation. Review security, validation, mo
 - Define retention and privacy controls for audio and customer data.
 
 > This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
+
 
